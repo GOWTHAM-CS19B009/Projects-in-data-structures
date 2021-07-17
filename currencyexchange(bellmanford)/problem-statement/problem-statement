@@ -1,0 +1,60 @@
+High-level Idea: We live in a complicated world where each country has its own currency and each country can only trade with some friendly countries (expressed in terms of treaties). (For simplicity, we will use country and currency somewhat interchangeably.) Each country has a colour associated with it (representing its membership in some coalition) and we have some treaties between colours. For example, red and green currencies may be exchanged, but not green and blue, etc. Perhaps, red represents ASEAN countries, blue represents African countries, and green represents S. American countries. Then currencies of ASEAN countries can be exchanged with currencies of African countries, but not with S. American countries.
+
+We are also provided with exchange rates between currencies. So if the exchange rate from USD to INR is 74, then 100 USD will fetch us 7400 INR.
+
+Our goal is to convert some X units of a source currency into a target currency such that the total value in the target currency is maximized. You are allowed to go through multiple intermediate currencies. For example, the best way to go from INR to USD may be to go from INR -> SGD --> HKD --> Euro --> USD.) During this process, If you have some A units of a currency with colour green, you can only convert that into currencies that are either green or currency colours that have a treaty with green countries. If India is a red country and European countries are green and there is no treaty between red and green countries, then it is illegal to convert INR to Euro at any point in time, but it is legal to convert INR to some intermediate currency and then to Euro if all intermediate conversions are legal.
+
+Colours: There are a total of C colours denoted c[0], c[1], ..., c[C-1] and we have an undirected and unweighted graph T on those C colours representing which colour currencies can be legally exchanged with which ones. Formally, a currency of colour c[i] can be exchanged with a colour of currency c[j] iff c[i] and c[j] are neighbours in T.
+
+Currencies: There are a total of N currencies denoted n[0], n[1], ..., n[N-1]. Each currency n[i] is associated with a colour nc[i] that is an integer in the range 0 to C-1. We have an exchange rate table represented in the form of a directed and weighted complete graph G on those N currencies. Suppose we wish to change S units of money from currency n[a] to currency n[b]. Let c[i] and c[j] be their respective colours. Since the graph G is complete, there will be an edge from n[a] to n[b] of weight, say w. Then, S units of money in currency n[a] can be converted to Sw units of money in currency n[b] provided that c[i] and c[j] are neighbours in T. Otherwise, you are not allowed to convert from n[a] to n[b] directly. Note that you may still be able to convert indirectly through other intermediate currencies. Of course, each intermediate conversion must satisfy the colour conversion graph T.
+
+Task: Create a class of any name you want, to store all the inputs that have been provided to you. You are free to use any STL container you want. Your class should have a member function which gives required output as explained in the output format below.
+
+Note : Use float data type to store the exchange rates. Dont use double.
+
+Input Format
+
+Colours
+
+First line will be C, the number of colors.
+
+Second line will be m, the number of undirected edges in colors graph.
+
+The next m lines will be two space-separated integers each, indicating edge between those colors.
+
+Currencies
+
+The next line will be N, the number of currencies.
+
+The following line will have N integer values, nc[0], nc[1], ..., nc[N - 1], where nc[i] indicates color associated with currency i.
+
+Next N lines will each contain N floating point values, indicating rows of adjacency matrix for complete graph T of currencies.
+
+Queries
+
+The next line will be a positive integer q, the number of queries.
+
+Finally, we will have q lines with three integers, s, t, and X, where s is index of starting currency, t is index of target currency, and X is the amount of units of starting currency that must be converted into the target currency.
+
+Constraints
+
+1 <= C <= 15
+
+C <= N <= 100
+
+1 <= q <= 10000
+
+0 <= s,t < N
+
+Output Format
+
+Output should be q lines, each containing the answer to the corresponding query.
+
+Answer for a particular query can be one of the following:
+
+    -1, if conversion is not possible through any means, following the treaty.
+
+    a floating point value(upto 3 decimals), showing, maximum number of units of target currency.
+
+    INF, if there is a path from s to t through an increasing weight cycle.
+

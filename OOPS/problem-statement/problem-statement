@@ -1,0 +1,54 @@
+A mental well-being and meditation center named BLOOMBRAIN in Mumbai, India is helping the people who have signed up for their year long program in a unique way. From the start of joining, a member is allocated a number that is related to how much progress he/she has made so far according to the gurus of the institution. We call it the Seraphic Number. After a period of time the Seraphic Number may change based on an evaluation process. To widen the individual senses the gurus have devised a great strategy for the current members.
+
+The institute has N rooms (numbered from 0 to N-1) each owned by at most one member to stay. A member can leave the program any time and a new member can join any time as well (given there is at least one unoccupied room). When a new member joins, he initially goes through a screening process and is given a seraphic number by the gurus.
+
+According to the value of seraphic number, higher value means more experienced member with high progress rate. In a whole day there are 5 stages. Meditation for 2 hour, quality talk between two members for 10 minutes (for each pair), yoga for 1 hour, lunch recess and calmness crossover (a game designed by the great gurus, described below).
+In the evening there will be a face off between a group of members and one of the gurus. The end result of this game is an indicator of the progress rate of the group. We can say the group will win the game if the sum of their seraphic numbers is greater than that of the guru. That means the guru will not lose if his seraphic number is greater than or equal to the sum of seraphic numbers of members in the group.
+
+There are some rules for quality talk and calmness crossover.
+RULE #1: Two people can have the quality talk if and only if the person who is occupying a room with a lesser room number has more (>) seraphic number than the other.
+Note: Person A talking with person B or person B talking with person A are the same thing.
+RULE #2: A group can have any number of members but only a valid group can compete with the guru. Let m1 be the member in the group with lowest room number n1 and m2 be the member with the highest room number n2. Now a valid group should contain all the members occupying room n1 till room n2.
+
+You as a chosen leader have been asked to report the number of quality talks in a particular day and it is your responsibility to choose the best possible valid group to compete against the guru.
+
+You have to implement the following functions in BloomBrain class.
+update : It will take an array of size N as input which indicates the corresponding seraphic number of members. You need to print the number of quality talks possible (between existing members) after the update.
+join : It will take one integer value as input which indicates the initial seraphic number of the new joining member. This new member will be given the last (highest number) unoccupied room.
+leave : It will take one integer value as input, the member occupying that room number will leave the centre. The room will be emptied with a 0 seraphic number.
+occupied : This will output the number of existing members in the centre.
+play : The calmness crossover game will be played between the best possible group that you have chosen (the group will be chosen from the existing members occupying their corresponding rooms) and one of the guru. Print the minimum seraphic number the guru must have so that he will not lose.
+
+Note
+
+    For the first "update" query assume all rooms are occupied regardless of the s values.
+    From the second "update" onwards if a room is empty then the corresponding s value will be zero in the "update" query but an s value being 0 in the "update" query doesn't mean that the room is empty.
+    Room being empty or occupied totally depends on previous "join" and "leave" queries.
+
+Input Format
+
+First line will have a value N : number of rooms
+Second line will have a value Q : number of queries
+5 different queries are possible.
+
+    update : for this query in the next line there will be N values, each separated by a single space.
+    join : for this query there will be a value s in the same line
+    leave : for this query there will be a value idx in the same line
+    occupied : there won’t be any input for this query
+    play : there won’t be any input for this query
+
+Constraints
+
+5 ≤ N ≤ 105
+1 ≤ Q ≤ 200
+-103 ≤ s ≤ 103, where s indicates a seraphic number
+0 ≤ idx < N
+
+Output Format
+
+Print output for following queries on a new line
+
+    update : print the number of quality talks possible between existing members.
+    occupied : print the number of existing members in the center
+    play : print the minimum seraphic number of the guru such that the guru will not lose even against the best possible group.
+

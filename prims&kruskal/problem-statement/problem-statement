@@ -1,0 +1,51 @@
+In this lab, you will compute the minimum spanning tree of a weighted undirected graph. Use the weighted graph class you have defined in the previous assignment for representing the input graph. Derive a new class named MST. The derived class should have the provision to hold a spanning tree/forest (as an adjacency list) (let us call this variable tree).
+You have to implement Kruskal’s and Prim’s algorithms for computing the minimum spanning tree.
+
+Create a Graph Class (similar to previous lab assignmnent) and implement following methods in it -
+
+    AddV() : Add a new vertex.
+    AddE(a,b,w) : Add an edge from vertex a to vertex b of weight w. Should write an error message to the standard error stream if the vertex indices is invalid.
+    DelE(a,b): Delete the edge from vertex a to vertex b. Should write an error message to the standard error stream if the edge does not exist or vertex indices is invalid.
+
+Now create the MST class and implement the following methods in it -
+
+    Prims(v): Computes a minimum weight spanning tree of the graph using prim's algorithm starting at the vertex v and stores the tree in the variable tree. Print the sum of weights of edges in the MST. While considereing the vertices, if two vertices have same key value, choose the one with lower vertex number. Should write an error message to the standard error stream if the vertex indices is invalid.{You may assume that input graph will be connected}.
+    Kruskal(): Computes a minimum weight spanning forest of the graph using Kruskal’s algorithm and stores the tree in the variable tree. Print the sum of weights of all the edges in the minimum spanning forest. While considering the edges in increasing order, if two edges (u1,v1) and (u2,v2) have same weight then consider (u1, v1) first if u1 
+
+u2 or {u1 = u2 and v1
+v2}. Else consider (u2,v2) first. Should write an error message to the standard error stream if the vertex indices is invalid. {The input graph may not be connected}
+TreeUptodate(): This procedure should check if the minimum spanning tree/forest is up-to-date i.e. no edges/vertices are added/deleted to the graph after Prims/Kruskal’s was run. Print YES if the tree is up-to-date, NO otherwise. Note that if Prims/Kruskal has not been executed once then the tree is considered not up-to-date. Also if the addition/deletion of edge does not affect the structure of MST, then also the tree is considered not up-to-date.
+DisplayTree(): Output the edges of the spanning tree in the ascending order of edge weight. Since edges are undirected, each edge should be printed only once in the format u v w such that u
+v. If two edges (u1,v1) and (u2,v2) have same edge weights, then print (u1,v1) first if u1 u2 or {u1 = u2 and v1
+
+    v2}. Else print (u2,v2) first.
+
+Note 1 : You can use any STL containers as necessary
+
+Note 2 : Refer to online materials and textbooks for more information on prim's and kruskal's algorithms
+
+Input Format
+
+The first line of the input contains an integer N denoting number of vertices initially in the graph The next line contains an integer Q, representing the number of queries. The next Q lines will have any queries as following:
+
+    ADDV
+    ADDE a b w
+    DELE a b
+    Prims v
+    Kruskal
+    TreeUptodate
+    DisplayTree
+
+Constraints
+
+DisplayTree query will always be given when tree is up-to-date.
+
+Output Format
+
+For Query Prims v, print the weight of MST.
+
+For Query Kruskal, print the weight of MST.
+
+For Query TreeUptodate, print YES if the tree is up-to-date, NO otherwise.
+
+For Query DisplayTree, print the edges of the spanning tree/forest in ascending order with ties broken as per given in the problem above. Each edge (u, v) having weight w is printed in a new line in a format u v w

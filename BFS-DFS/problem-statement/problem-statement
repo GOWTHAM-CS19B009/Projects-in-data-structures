@@ -1,0 +1,45 @@
+This assignment is to do a miniature implementation of a graph class for representing weighted undirected graphs G(V, E, W).
+
+Define a class template called graph to represent an undirected graph with edge weights where type of edge weight is the parameter for the template. The graph should be represented as an adjacency list. Provide following methods for the graph class:
+
+    AddV() : Add a new vertex.
+    AddE(a,b,w) : Add an edge from vertex a to vertex b of weight w. Should write an error message to the standard error stream if the vertex indices is invalid.
+    DelE(a,b): Delete the edge from vertex a to vertex b. Should write an error message to the standard error stream if the edge does not exist or vertex indices is invalid.
+    BFS(a): Implements breadth first search on the graph using a queue starting from the vertex a. Print the BFS order of the vertices reachable from a.
+    SSP(a): Modify the BFS function above to compute single source shortest path from vertex a. Print the shortest paths from vertex a to remaining vertices. If a vertex is not reachable from vertex a, it should print the value of INT_MAX.
+
+Note: In BFS, to avoid ambiguity, the vertices which are connected by the least weighted edge must be traversed first. If two vertices are connected by same weighted edges, the vertex with least index must be traversed first.
+
+You can use functionalities available in the STL such as vector, list, matrix, stack, queue, etc. as required. But, you cannot use any pre-implemented STL algorithms.
+
+To modify BFS into SSP:
+
+    Initialize 
+
+and Insert the vertices in a priority queue with
+as the key value.
+Every time while picking the next vertex to traverse, choose the vertex with lowest value
+in the priority queue.
+For every
+such that , update the value , i.e., if , then set
+Proceed until the queue is empty
+Output the vector
+
+Input Format
+
+The first line of the input contains an integer denoting number of vertices initially in the graph The next line has Q The next Q lines will have any queries as following:
+
+    ADDV
+    ADDE a b w
+    DELE a b
+
+Next 2 lines will have any queries from the following:
+
+    BFS a
+    SSP b
+
+Constraints
+
+Output Format
+
+Display appropriate output as mentioned in the problem statement

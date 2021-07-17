@@ -1,0 +1,37 @@
+[Jeff Erickson]The edit distance between two strings is the minimum number of letter insertions, letter deletions, and letter substitutions required to transform one string into the other.
+
+For example, the edit distance between FOOD and MONEY is at most four: FOOD => MOOD => MON^D => MONED => MONEY
+
+Task: Create a class called EDD that stores two strings s1 and s2 (using string class from STL). and an integer matrix.
+
+Functions inside EDD:
+
+assign(a,b): sets s1 = a and s2 =b.
+
+compdist(): Compute the edit distance between the two strings stored in the class. Should throw an exception if the strings are not initialized (i.e., no prior call to assign is made). You should implement the dynamic programming algorithm for computing edit distance (Ref: Jeff Erickson’s book, Section 3.7. Book is in the google drive shared folder for the course. Link: https://tinyurl.com/2a285w2e) in the most efficient manner.
+
+dist(): return the edit distance between the two strings. If not, update the matrix variable inside the class to the table obtained by the dynamic programming available, should run compdist() and then return the edit distance. Again, should throw an exception if the strings are not initialized.
+
+table(): Should output the table if available. If not available, should run compdist() and then output the table. Again, should throw an exception if the strings are not initialized.
+
+Input Format
+
+First line of input will contain q = number of queries.
+
+Next each of the q queries will be a string from the set = {assign, compdist, dist, table}.
+
+NOTE : Every assign query will be followed by two strings s1 and s2.
+
+Constraints
+
+0 < No. of queries <= (10)^5
+
+0 < length of s1, s2 <= 100
+
+Output Format
+
+For dist query, print the edit distance in a new line.
+
+For table query, print the matrix (print each row in a new line and each element of a row should be space separated).
+
+If strings not found throw an excpetion "strings not found!".
