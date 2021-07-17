@@ -1,0 +1,45 @@
+The game is played on an N X N grid of 'cells', each of which is either empty or contains an explosive mine. The player's task is to locate all of the M mines without causing any of them to explode. The location of the mines however, is a secret to the player. At the beginning of the game the player has no information as to whether any given cell contains a mine or not. The only course of action is to 'reveal' the contents of a chosen cell. Should the player choose to reveal a mine, the game is over and the player loses.
+However, if an empty cell is revealed, two useful things will happen.
+- The player is shown how many of the revealed cell's eight neighbours contain mines.
+- If the chosen cell has no neighbours which are mines, all of its neighbours are 'revealed'.
+
+To understand the game further, play the game a few times to get the hang of it.
+It can be played here: LINK
+
+Your task is to design a minesweeper game given the values of N (the size of the grid) and M (the number of mines) and the locations of all the mines. Once these values are given, the board has been set. Now the player begins to play, and the positions where he chooses to click are given.
+For each 'click', you must print one of the following:
+- "Won" if all the cells except the mines have been revealed.
+- "Lost" if a mine has been revealed.
+- A number "x" where x is the number of cells that have been revealed up to this point which are not mines.
+
+Once Won/Lost has been printed, the further locations do not matter and must be ignored.
+
+Do Use appropriate classes and functions to design your program.
+
+Input Format
+
+First line contains the values of N and M separated by a space.
+The next line contains M values, which indicate the location of the mines assuming the NxN grid is numbered from 0 to from left to right, top to bottom. For example, in a 5x5 grid, the location 8 indicates the position (1,3).
+The next few lines indicate the positions (in the form of coordinates) the player has chosen to reveal.
+
+N M
+M values indicating locations of mines
+loc 1
+loc 2
+loc 3
+....
+....
+
+Constraints
+
+1 <= N <= 100
+0 <= M < N*N
+
+Output Format
+
+Result could be "Won" or "Lost" or a number.
+result 1
+result 2
+result 3
+....
+....
