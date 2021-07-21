@@ -1,1 +1,1 @@
-# Projects-in-data-structures and Object Oriented Programming
+# Projects-in-data-structures
